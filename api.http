@@ -1,0 +1,9 @@
+### Создать нового автора
+POST http://localhost:3000/authors
+Content-Type: application/json
+
+{
+  "name": "Первый Автор",
+  "nickname": "first_author",
+  "link": "https://instagram.com/first_author"
+}
