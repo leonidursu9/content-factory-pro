@@ -6,7 +6,7 @@ const Author = require('./models/Author.js');
 const DB_URL = "mongodb+srv://AJN0BH97l0kbOeVs:AJN0BH97l0kbOeVs@cluster0.p56kujj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware для парсинга JSON
 app.use(express.json());
