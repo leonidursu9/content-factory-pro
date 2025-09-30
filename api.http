@@ -5,5 +5,16 @@ Content-Type: application/json
 {
   "name": "Первый Автор",
   "nickname": "first_author",
-  "link": "https://instagram.com/first_author"
+  "link": "http://localhost:3000/authors"
 }
+
+###
+
+### Запустить парсинг для профиля
+POST https://www.instagram.com/leonid__ursu?igsh=M2cxa2FqNXpnaDQw&utm_source=qr
+Content-Type: application/json
+
+{
+  "nickname": "test_user_to_parse"
+}
+INSTAGRAM_SESSION_COOKIE=12583862463%3ALdNCvR3wN4fQ0N%3A2%3AAYiqa80Op2I1sID5Gorx8lEfa7uccj31LUqSlS4Hcg
