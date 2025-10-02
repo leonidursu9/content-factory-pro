@@ -5,39 +5,44 @@ const client = new ApifyClient({
     token: process.env.APIFY_API_KEY,
 });
 
-const INSTAGRAM_ACTOR_ID = 'apify/instagram-profile-scraper';
+const INSTAGRAM_POST_SCRAPER_ID = 'apify/instagram-scraper';
+const INSTAGRAM_PROFILE_SCRAPER_ID = 'apify/instagram-profile-scraper';
 
-async function getInstagramProfileData(username) {
-    console.log(`[ПАРСЕР] Начинаю парсинг реального профиля: ${username}`);
-    
+// Эта функция получает посты
+async function getInstagramPosts(profileUrl) {
+    console.log(`[ПАРСЕР-ПОСТЫ] Начинаю парсинг постов по ссылке: ${profileUrl}`);
     try {
         const input = {
-            usernames: [username],
-            // Добавляем сессионные cookie, чтобы запрос выглядел аутентифицированным
-            proxyConfiguration: { useApifyProxy: true },
-            sessionCookies: [
-                {
-                    "name": "sessionid",
-                    "value": process.env.INSTAGRAM_SESSION_COOKIE,
-                    "domain": ".instagram.com",
-                }
-            ]
+            directUrls: [profileUrl],
+            resultsType: "posts",
+            resultsLimit: 15,
         };
-
-        const run = await client.actor(INSTAGRAM_ACTOR_ID).call(input);
+        const run = await client.actor(INSTAGRAM_POST_SCRAPER_ID).call(input);
         const { items } = await client.dataset(run.defaultDatasetId).listItems();
-
-        if (items && items.length > 0) {
-            console.log(`[ПАРСЕР] Успешно получил данные для: ${username}`);
-            return items[0];
-        } else {
-            console.log(`[ПАРСЕР] Не удалось найти данные для: ${username}`);
-            return null;
-        }
+        return items;
     } catch (error) {
-        console.error('[ПАРСЕР] Произошла ошибка:', error);
-        throw new Error('Ошибка во время парсинга');
+        console.error('[ПАРСЕР-ПОСТЫ] Ошибка:', error);
+        return [];
     }
 }
 
-module.exports = { getInstagramProfileData };
+// Эта функция получает данные профиля
+async function getInstagramProfile(username) {
+    console.log(`[ПАРСЕР-ПРОФИЛЬ] Получаю данные для: ${username}`);
+    try {
+        const input = {
+            usernames: [username],
+        };
+        const run = await client.actor(INSTAGRAM_PROFILE_SCRAPER_ID).call(input);
+        const { items } = await client.dataset(run.defaultDatasetId).listItems();
+        if (items && items.length > 0) {
+            return items[0];
+        }
+        return null;
+    } catch (error) {
+        console.error('[ПАРСЕР-ПРОФИЛЬ] Ошибка:', error);
+        return null;
+    }
+}
+
+module.exports = { getInstagramPosts, getInstagramProfile };
