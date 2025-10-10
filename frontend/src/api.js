@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 async function handleApiError(response, defaultMessage) { let errorMessage = defaultMessage; try { const errorData = await response.json(); errorMessage = errorData.message || defaultMessage; } catch {} throw new Error(errorMessage); }
 export const apiVerify = async (code) => { const response = await fetch(`${API_URL}/verify`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code }) }); if (!response.ok) await handleApiError(response, 'Ошибка верификации.'); return response.json(); };
