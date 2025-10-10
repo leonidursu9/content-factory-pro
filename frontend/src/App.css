@@ -1,0 +1,16 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-content {
+  flex-grow: 1;
+  overflow-y: auto; /* Позволяет прокручивать только основное содержимое */
+  padding: 15px 15px 80px 15px; /* Оставляем отступ снизу для навигации */
+}
+
+/* Убираем стандартные отступы у page-container, так как они теперь в main-content */
+.page-container {
+  padding: 0;
+}

@@ -1,0 +1,78 @@
+/* --- Стили для шапки --- */
+.header-banner {
+  background-image: linear-gradient(to bottom, #f7f7f7, #e9e9e9);
+  color: var(--text-primary);
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  text-align: center;
+  border: 1px solid #e5e5e5;
+}
+.header-banner h1 {
+  font-size: 32px;
+}
+
+/* --- Стили для формы добавления --- */
+.add-author-form { margin-bottom: 25px; }
+.add-author-form textarea { 
+  width: 100%; 
+  padding: 12px 15px; 
+  border: 1px solid var(--border-color); 
+  border-radius: 12px; 
+  box-sizing: border-box; 
+  margin-bottom: 10px; 
+  font-family: var(--font-family-system); 
+  font-size: 16px; 
+  resize: vertical; 
+  min-height: 80px; 
+  background-color: var(--bg-secondary); /* ИСПРАВЛЕНО */
+  color: var(--text-primary); /* ИСПРАВЛЕНО */
+}
+.add-author-form button { background-image: none; background-color: var(--accent-primary); color: white; font-weight: 600; font-size: 17px; border-radius: 50px; padding: 14px 20px; border: none; }
+
+/* --- Сообщения --- */
+.feedback-message, .error-message { margin-top: 10px; padding: 10px; border-radius: 8px; text-align: center; }
+.feedback-message { background-color: #e6ffed; color: #006422; }
+.error-message { background-color: #ffe6e6; color: var(--danger-color); }
+.loading-text { text-align: center; padding: 40px; color: var(--text-secondary); }
+
+/* --- Стили для карточек авторов --- */
+.authors-grid { display: grid; gap: 15px; }
+.author-card-new { background: var(--bg-secondary); border-radius: 18px; box-shadow: 0 4px 15px var(--shadow-color); display: flex; flex-direction: column; overflow: hidden; }
+.author-card-new-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 15px; }
+.author-card-new-info { display: flex; align-items: center; }
+.author-card-new-avatar { width: 48px; height: 48px; border-radius: 50%; background-image: var(--accent-gradient); color: white; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 500; margin-right: 12px; flex-shrink: 0; }
+.author-card-new-name { font-weight: 600; font-size: 17px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.author-card-new-nickname { color: var(--text-secondary); font-size: 15px; }
+
+.author-card-new-delete { display: none; } 
+
+.author-card-new-stats { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; padding: 15px 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); } /* ИСПРАВЛЕНО */
+.author-card-new-stats span { font-size: 18px; font-weight: 600; display: block; }
+.author-card-new-stats label { font-size: 12px; color: var(--text-secondary); }
+
+.author-card-new-footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 10px;
+  gap: 10px;
+}
+
+.footer-icon-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--bg-primary);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto;
+}
+.footer-icon-button img {
+  width: 24px;
+  height: 24px;
+}

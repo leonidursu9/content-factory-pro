@@ -1,0 +1,122 @@
+.ideas-grid {
+    display: grid;
+    gap: 15px;
+}
+
+.idea-card-new {
+    background: var(--bg-secondary);
+    border-radius: 18px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f0f0f0;
+}
+
+.idea-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px;
+}
+
+.idea-caption {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 0 5px 0;
+}
+
+.idea-author {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.delete-button-idea {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.transcript-block {
+    padding: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.transcript-block h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.transcript-block p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.expand-transcript {
+    color: var(--accent-primary);
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+/* НОВЫЙ БЛОК СТАТИСТИКИ */
+.idea-card-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    padding: 15px 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Используем те же стили метрик, что и в PostCard */
+.metric-item-new {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+.metric-item-new svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--text-tertiary);
+    stroke-width: 2;
+    fill: none;
+}
+
+/* НОВЫЙ ФУТЕР */
+.idea-card-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Используем тот же стиль для кнопок-иконок */
+.footer-icon-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.footer-icon-button img {
+    width: 24px;
+    height: 24px;
+}

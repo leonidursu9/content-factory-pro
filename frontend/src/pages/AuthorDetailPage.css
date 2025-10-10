@@ -1,0 +1,112 @@
+.detail-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.back-button {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.back-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.detail-header h1 {
+    font-size: 24px;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1;
+}
+
+.update-profile-button {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.update-profile-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.detail-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 15px;
+    background-color: var(--bg-secondary);
+    border-radius: 18px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid #f0f0f0;
+    width: 80%;
+    max-width: 300px;
+}
+
+.chart-container {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: var(--bg-secondary);
+    border-radius: 18px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 1px solid #f0f0f0;
+}
+.chart-container h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+}
+.chart-wrapper {
+    height: 200px;
+    position: relative;
+}
+.no-chart-data {
+    text-align: center;
+    color: var(--text-secondary);
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.posts-section-title {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--bg-primary);
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.posts-grid {
+    display: grid;
+    gap: 15px;
+}

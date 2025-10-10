@@ -1,0 +1,29 @@
+const API_URL = 'http://localhost:3000';
+
+async function handleApiError(response, defaultMessage) { let errorMessage = defaultMessage; try { const errorData = await response.json(); errorMessage = errorData.message || defaultMessage; } catch {} throw new Error(errorMessage); }
+export const apiVerify = async (code) => { const response = await fetch(`${API_URL}/verify`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code }) }); if (!response.ok) await handleApiError(response, 'Ошибка верификации.'); return response.json(); };
+export const apiGetAuthors = async () => { const response = await fetch(`${API_URL}/authors`); if (!response.ok) await handleApiError(response, 'Ошибка при получении списка авторов.'); return response.json(); };
+export const apiAddAuthor = async (link) => { const response = await fetch(`${API_URL}/authors`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ link }) }); if (!response.ok) await handleApiError(response, 'Не удалось добавить автора.'); return response.json(); };
+export const apiGetAuthorById = async (authorId) => { const response = await fetch(`${API_URL}/authors/${authorId}`); if (!response.ok) await handleApiError(response, 'Не удалось загрузить данные автора.'); return response.json(); };
+export const apiDeleteAuthor = async (authorId) => { const response = await fetch(`${API_URL}/authors/${authorId}`, { method: 'DELETE' }); if (!response.ok) await handleApiError(response, 'Не удалось удалить автора.'); return response.json(); };
+export const apiUpdateAuthor = async (authorId) => { const response = await fetch(`${API_URL}/authors/${authorId}`, { method: 'POST' }); if (!response.ok) await handleApiError(response, 'Не удалось запустить обновление автора.'); return response.json(); };
+export const apiGetPosts = async (filters = {}) => { const query = new URLSearchParams(filters).toString(); const response = await fetch(`${API_URL}/posts?${query}`); if (!response.ok) await handleApiError(response, 'Не удалось загрузить посты.'); return response.json(); };
+export const apiGetPostById = async (postId) => { const response = await fetch(`${API_URL}/posts/${postId}`); if (!response.ok) await handleApiError(response, 'Пост не найден.'); return response.json(); };
+export const apiParseAll = async () => { const response = await fetch(`${API_URL}/parse-all`, { method: 'POST' }); if (!response.ok) await handleApiError(response, 'Не удалось запустить массовый парсинг.'); return response.json(); };
+export const apiRewriteScript = async (text) => { const response = await fetch(`${API_URL}/rewrite`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text }) }); if (!response.ok) await handleApiError(response, 'Ошибка AI-адаптации.'); return response.json(); };
+export const apiRefineScript = async (text) => { const response = await fetch(`${API_URL}/refine-script`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text }) }); if (!response.ok) await handleApiError(response, 'Ошибка при улучшении сценария.'); return response.json(); };
+export const apiSetParserStatus = async (enabled) => { const response = await fetch(`${API_URL}/settings/parser`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ enabled }) }); if (!response.ok) await handleApiError(response, 'Не удалось изменить статус парсера.'); return response.json(); };
+export const apiGetScripts = async (postId = null) => { let url = `${API_URL}/scripts`; if (postId) { url += `?postId=${postId}`; } const response = await fetch(url); if (!response.ok) await handleApiError(response, 'Не удалось загрузить сценарии.'); return response.json(); };
+export const apiSaveScript = async (scriptData) => { const response = await fetch(`${API_URL}/scripts`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(scriptData) }); if (!response.ok) await handleApiError(response, 'Не удалось сохранить сценарий.'); return response.json(); };
+export const apiUpdateScript = async (scriptId, scriptData) => { const response = await fetch(`${API_URL}/scripts/${scriptId}`, { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(scriptData) }); if (!response.ok) await handleApiError(response, 'Не удалось обновить сценарий.'); return response.json(); };
+export const apiDeleteScript = async (scriptId) => { const response = await fetch(`${API_URL}/scripts/${scriptId}`, { method: 'DELETE' }); if (!response.ok) await handleApiError(response, 'Не удалось удалить сценарий.'); return response.json(); };
+export const apiDeleteIdea = async (ideaId) => { const response = await fetch(`${API_URL}/ideas/${ideaId}`, { method: 'DELETE' }); if (!response.ok) await handleApiError(response, 'Не удалось удалить идею.'); return response.json(); };
+export const apiTranscribePost = async (postId) => { const response = await fetch(`${API_URL}/transcribe-post`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ postId }) }); if (!response.ok) await handleApiError(response, 'Не удалось запустить транскрибацию.'); return response.json(); };
+export const apiGetIdeas = async () => { const response = await fetch(`${API_URL}/ideas`); if (!response.ok) await handleApiError(response, 'Не удалось загрузить идеи.'); return response.json(); };
+
+// --- НОВАЯ ФУНКЦИЯ, КОТОРУЮ НЕ УДАЛОСЬ НАЙТИ ---
+export const apiGetStatus = async () => {
+    const response = await fetch(`${API_URL}/settings/status`);
+    if (!response.ok) await handleApiError(response, 'Не удалось загрузить статус системы.');
+    return response.json();
+};

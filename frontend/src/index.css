@@ -1,0 +1,104 @@
+/* ======================================== */
+/* DESIGN SYSTEM v1.0            */
+/* ======================================== */
+
+:root {
+  /* Шрифты */
+  --font-family-system: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  
+  /* Цветовая палитра (светлая тема) */
+  --bg-primary: #f0f2f5;       /* Основной фон приложения (очень светло-серый) */
+  --bg-secondary: #ffffff;     /* Фон карточек, модальных окон (белый) */
+  --text-primary: #050505;     /* Основной черный текст */
+  --text-secondary: #65676b;   /* Второстепенный серый текст (для никнеймов, дат) */
+  --text-tertiary: #8e8e93;    /* Самый светлый серый текст (для иконок) */
+  --accent-primary: #007aff;    /* Основной акцентный цвет (синий, как у Apple) */
+  --accent-gradient: linear-gradient(90deg, #007aff 0%, #5856d6 100%); /* Градиент для главных кнопок */
+  --border-color: #d1d1d6;     /* Цвет разделителей и границ */
+  --shadow-color: rgba(0, 0, 0, 0.08);
+  --danger-color: #ff3b30;     /* Цвет для кнопок удаления */
+  --success-color: #34c759;    /* Цвет для индикаторов успеха */
+}
+
+/* Общие стили для всего приложения */
+body {
+  margin: 0;
+  font-family: var(--font-family-system);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: var(--bg-secondary);
+  min-height: 100vh;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+/* ======================================== */
+/* ТЕМНАЯ ТЕМА v2.0 (Стиль Apple)       */
+/* ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Цветовая палитра (темная тема) */
+    --bg-primary: #1c1c1e;       /* Основной фон (почти черный) */
+    --bg-secondary: #2c2c2e;     /* Фон карточек (темно-серый) */
+    --text-primary: #ffffff;     /* Основной белый текст */
+    --text-secondary: #a0a0a5;   /* Второстепенный серый текст (светлее для контраста) */
+    --text-tertiary: #7d7d80;    /* Самый темный серый текст (для иконок) */
+    --border-color: #38383a;     /* Цвет разделителей */
+    --shadow-color: rgba(0, 0, 0, 0.4); /* Более выраженная тень */
+  }
+
+  #root {
+    box-shadow: none;
+  }
+
+  /* Исправляем фон баннеров и кнопок */
+  .header-banner {
+    background-image: none;
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+  }
+  
+  .update-profile-button, 
+  .refresh-button,
+  .footer-icon-button {
+    background-color: #3d3d40;
+    border: 1px solid #4f4f52;
+  }
+  
+  /* Исправляем цвет иконок в нижней навигации */
+  .bottom-nav a img {
+    filter: grayscale(1) opacity(0.7);
+  }
+
+  .bottom-nav a.active {
+    background-color: var(--accent-primary);
+  }
+
+  .bottom-nav a.active img {
+    filter: brightness(0) invert(1); 
+  }
+  
+  /* Глобальные стили для форм в темной теме */
+  input, textarea, select {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
+  }
+}
