@@ -104,7 +104,4 @@ a {
     color: var(--text-primary) !important;
     border: 1px solid var(--border-color) !important;
   }
-}* 
-{
-  outline: 1px solid red !important;
 }
