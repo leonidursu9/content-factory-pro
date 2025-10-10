@@ -1,3 +1,9 @@
+/* --- ГЛАВНОЕ ИСПРАВЛЕНИЕ --- */
+.page-container {
+    /* Эта строка запрещает любую горизонтальную прокрутку внутри страницы */
+    overflow-x: hidden;
+}
+
 .header-with-action {
   position: relative;
   margin-bottom: 25px;
@@ -11,7 +17,7 @@
   height: 44px;
   border-radius: 50%;
   background-color: var(--bg-secondary);
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--border-color);
   color: var(--text-secondary);
   padding: 0;
   flex-shrink: 0;
@@ -36,14 +42,13 @@
     height: 24px;
 }
 
-/* --- СТИЛИ ДЛЯ ПАНЕЛИ ФИЛЬТРОВ --- */
 .filter-panel {
     background-color: var(--bg-secondary);
     padding: 15px;
     border-radius: 18px;
     margin-bottom: 25px;
     box-shadow: 0 4px 15px var(--shadow-color);
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--border-color);
 }
 
 .filter-search {
@@ -77,9 +82,13 @@
     background-repeat: no-repeat;
     background-position: right 10px top 50%;
     background-size: .65em auto;
-    padding-right: 30px; /* Место для стрелочки */
+    padding-right: 30px;
+
+    /* --- ДОБАВЛЕННЫЕ ПРАВИЛА --- */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
-/* --- КОНЕЦ СТИЛЕЙ ДЛЯ ФИЛЬТРОВ --- */
 
 .posts-grid {
   display: grid;
