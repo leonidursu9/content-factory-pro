@@ -20,10 +20,4 @@ export const apiDeleteScript = async (scriptId) => { const response = await fetc
 export const apiDeleteIdea = async (ideaId) => { const response = await fetch(`${API_URL}/ideas/${ideaId}`, { method: 'DELETE' }); if (!response.ok) await handleApiError(response, 'Не удалось удалить идею.'); return response.json(); };
 export const apiTranscribePost = async (postId) => { const response = await fetch(`${API_URL}/transcribe-post`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ postId }) }); if (!response.ok) await handleApiError(response, 'Не удалось запустить транскрибацию.'); return response.json(); };
 export const apiGetIdeas = async () => { const response = await fetch(`${API_URL}/ideas`); if (!response.ok) await handleApiError(response, 'Не удалось загрузить идеи.'); return response.json(); };
-
-// --- НОВАЯ ФУНКЦИЯ, КОТОРУЮ НЕ УДАЛОСЬ НАЙТИ ---
-export const apiGetStatus = async () => {
-    const response = await fetch(`${API_URL}/settings/status`);
-    if (!response.ok) await handleApiError(response, 'Не удалось загрузить статус системы.');
-    return response.json();
-};
+export const apiGetStatus = async () => { const response = await fetch(`${API_URL}/settings/status`); if (!response.ok) await handleApiError(response, 'Не удалось загрузить статус системы.'); return response.json(); };

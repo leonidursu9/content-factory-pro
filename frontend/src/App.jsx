@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import './App.css'; // Подключаем стили для App
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
+import './App.css';
 
 import AuthorsPage from './pages/AuthorsPage.jsx';
 import ContentPage from './pages/ContentPage.jsx';
@@ -15,7 +15,7 @@ import BottomNav from './components/BottomNav.jsx';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app-container">
         <main className="main-content">
           <Routes>
@@ -32,7 +32,7 @@ function App() {
         </main>
         <BottomNav />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
