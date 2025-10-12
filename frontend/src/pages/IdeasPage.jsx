@@ -109,11 +109,12 @@ function IdeaCard({ idea, onDelete }) {
                     </div>
                 )}
                 
-                <div className="idea-card-stats">
-                    <div className="metric-item-new"><ViewsIcon /><span>{formatCount(idea.postId?.viewsCount)}</span></div>
-                    <div className="metric-item-new"><LikesIcon /><span>{formatCount(idea.postId?.likesCount)}</span></div>
-                    <div className="metric-item-new"><CommentsIcon /><span>{formatCount(idea.postId?.commentsCount)}</span></div>
-                </div>
+                {/* ИСПРАВЛЕННЫЙ БЛОК СТАТИСТИКИ */}
+         <div className="author-card-new-stats">
+                <div><ViewsIcon /><span>{formatCount(idea.postId?.viewsCount)}</span><label>Просмотры</label></div>
+                <div><LikesIcon /><span>{formatCount(idea.postId?.likesCount)}</span><label>Лайки</label></div>
+                <div><CommentsIcon /><span>{formatCount(idea.postId?.commentsCount)}</span><label>Комментарии</label></div>
+            </div>
 
                 <div className="idea-card-footer">
                     <button onClick={handleRewriteClick} className="footer-icon-button" title="Создать новый сценарий">

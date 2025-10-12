@@ -1,8 +1,8 @@
 .profile-card {
     background-color: var(--bg-secondary);
     border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 16px; /* Обновлено по ТЗ */
+    margin-bottom: 16px; /* Обновлено по ТЗ */
     box-shadow: 0 4px 12px var(--shadow-color);
     border: 1px solid var(--border-color);
 }
@@ -10,7 +10,8 @@
 .profile-card h2 {
     margin-top: 0;
     margin-bottom: 25px;
-    font-size: 18px;
+    font-size: 17px; /* Semibold 17pt */
+    font-weight: 600;
     color: var(--text-secondary);
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
@@ -21,33 +22,33 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-    font-size: 16px;
+    font-size: 15px; /* Regular 15pt */
 }
 
 .setting-description {
-    font-size: 13px;
+    font-size: 13px; /* Regular 13pt */
     color: var(--text-secondary);
     margin-top: -10px;
     padding-bottom: 10px;
 }
 
-/* --- СТИЛИ ДЛЯ УВЕДОМЛЕНИЙ --- */
 .notification-card {
-    background-color: #fff0f0;
+    background-color: rgba(255, 59, 48, 0.1);
     border: 1px solid var(--danger-color);
     border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 16px;
+    margin-bottom: 16px;
 }
 
 .notification-card h2 {
     color: var(--danger-color);
-    border-bottom: 1px solid #ffdddd;
+    border-bottom: 1px solid rgba(255, 59, 48, 0.3);
 }
 
 .notification-item {
     font-size: 15px;
     margin-bottom: 10px;
+    color: var(--text-primary);
 }
 .notification-item strong {
     color: var(--danger-color);
@@ -69,7 +70,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #39393d;
     transition: .4s;
 }
 

@@ -47,7 +47,7 @@ function PostCard({ post }) {
     <>
       <div className="author-card-new">
         <div className="author-card-new-header">
-          <div className="author-info">
+      <div className="author-info">
              <div className="author-avatar">{authorName.charAt(0)}</div>
              <div>
                 <div className="author-name">{authorName}</div>
@@ -68,10 +68,10 @@ function PostCard({ post }) {
           )}
         </p>
 
-        <div className="author-card-new-stats">
-            <div className="metric-item-new"><ViewsIcon /><span>{formatCount(post.viewsCount)}</span></div>
-            <div className="metric-item-new"><LikesIcon /><span>{formatCount(post.likesCount)}</span></div>
-            <div className="metric-item-new"><CommentsIcon /><span>{formatCount(post.commentsCount)}</span></div>
+       <div className="author-card-new-stats">
+            <div><ViewsIcon /><span>{formatCount(post.viewsCount)}</span><label>Просмотры</label></div>
+            <div><LikesIcon /><span>{formatCount(post.likesCount)}</span><label>Лайки</label></div>
+            <div><CommentsIcon /><span>{formatCount(post.commentsCount)}</span><label>Комментарии</label></div>
         </div>
         
         <div className="author-card-new-footer">

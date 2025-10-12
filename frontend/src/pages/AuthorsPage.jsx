@@ -102,8 +102,7 @@ function AuthorsPage() {
             <div key={author._id} className="author-card-new">
               <div className="author-card-new-header">
                 <div className="author-card-new-info">
-                  <div className="author-card-new-avatar">{author.name.charAt(0)}</div>
-                  <div>
+                  <div className="author-card-new-avatar">{author.name.charAt(0)}</div><div>
                     <div className="author-card-new-name">{author.name}</div>
                     <a href={author.link} target="_blank" rel="noopener noreferrer" className="author-card-new-nickname">@{author.nickname}</a>
                   </div>

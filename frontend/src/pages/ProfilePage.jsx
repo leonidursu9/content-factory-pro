@@ -2,27 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { apiGetStatus, apiSetParserStatus } from '../api.js';
 import './ProfilePage.css';
 
-// Вспомогательный компонент для отображения статуса лимита
-const LimitStatus = ({ title, usage, isOk, unit }) => {
-    const percentage = (usage.used / usage.total) * 100;
-    let statusColor = 'var(--success-color)';
-    if (percentage > 85) {
-        statusColor = 'var(--danger-color)';
-    } else if (percentage > 60) {
-        statusColor = '#ff9500'; // Orange
-    }
-
-    return (
-        <div className="limit-row">
-            <span>{title}</span>
-            <div className="limit-bar-container">
-                <div className="limit-bar" style={{ width: `${percentage}%`, backgroundColor: statusColor }}></div>
-            </div>
-            <strong>{usage.used} / {usage.total} {unit}</strong>
-        </div>
-    );
-};
-
 function ProfilePage() {
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -69,6 +48,11 @@ function ProfilePage() {
   if (error) {
     return <div className="page-container"><p className="error-message">{error}</p></div>;
   }
+  
+  // Добавляем проверку на случай, если status или вложенные объекты еще не загрузились
+  if (!status || !status.parserSettings || !status.lastParse) {
+      return <div className="page-container"><p className="loading-text">Загрузка данных...</p></div>;
+  }
 
   return (
     <div className="page-container">
@@ -77,7 +61,7 @@ function ProfilePage() {
         <p>Управление работой приложения.</p>
       </div>
       
-      {status?.notifications && status.notifications.length > 0 && (
+      {status.notifications && status.notifications.length > 0 && (
           <div className="notification-card">
               <h2>Важные уведомления</h2>
               {status.notifications.map((notif, index) => (
@@ -95,14 +79,14 @@ function ProfilePage() {
           <label className="switch">
             <input 
               type="checkbox" 
-              checked={status?.parserSettings?.isEnabled || false}
+              checked={status.parserSettings.isEnabled}
               onChange={handleToggleParser}
             />
             <span className="slider round"></span>
           </label>
         </div>
         <p className="setting-description">
-          {status?.parserSettings?.isEnabled ? 'Парсер активен и сканирует авторов по расписанию.' : 'Парсер выключен. Новые посты не будут загружаться.'}
+          {status.parserSettings.isEnabled ? 'Парсер активен и сканирует авторов по расписанию.' : 'Парсер выключен. Новые посты не будут загружаться.'}
         </p>
       </div>
 
@@ -110,12 +94,12 @@ function ProfilePage() {
           <h2>Последний запуск</h2>
           <div className="setting-row">
               <span>Тип:</span>
-              <strong>{status?.lastParse?.type || '...'}</strong>
+              <strong>{status.lastParse.type}</strong>
           </div>
           <div className="setting-row">
               <span>Время:</span>
               <strong>
-                  {status?.lastParse?.timestamp 
+                  {status.lastParse.timestamp 
                       ? new Date(status.lastParse.timestamp).toLocaleString('ru-RU') 
                       : '...'}
               </strong>
@@ -126,12 +110,12 @@ function ProfilePage() {
         <h2>Статистика</h2>
         <div className="setting-row">
           <span>Отслеживаемые авторы:</span>
-          <strong>{status?.parserSettings?.currentAuthors} / {status?.parserSettings?.maxAuthors}</strong>
+          <strong>{status.parserSettings.currentAuthors} / {status.parserSettings.maxAuthors}</strong>
         </div>
         <div className="progress-bar-container">
             <div 
                 className="progress-bar" 
-                style={{ width: `${(status?.parserSettings?.currentAuthors / status?.parserSettings?.maxAuthors) * 100}%` }}
+                style={{ width: `${(status.parserSettings.currentAuthors / status.parserSettings.maxAuthors) * 100}%` }}
             ></div>
         </div>
       </div>

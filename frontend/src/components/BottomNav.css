@@ -6,10 +6,15 @@
   width: calc(100% - 30px);
   max-width: 420px;
   height: 56px;
-  background-color: var(--bg-secondary);
+  
+  /* --- ЭФФЕКТ "СТЕКЛА" (Glassmorphism) для СВЕТЛОЙ ТЕМЫ --- */
+  background: rgba(255, 255, 255, 0.75); /* Полупрозрачный белый */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Слегка заметная рамка */
+  /* --- КОНЕЦ ЭФФЕКТА --- */
+
   border-radius: 50px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -31,8 +36,7 @@
 .bottom-nav a img {
   width: 28px;
   height: 28px;
-  filter: grayscale(1) opacity(0.6);
-  transition: filter 0.2s ease-in-out;
+  /* Для светлой темы иконки по умолчанию черные/серые */
 }
 
 .bottom-nav a.active {
@@ -41,4 +45,20 @@
 
 .bottom-nav a.active img {
   filter: brightness(0) invert(1); 
+}
+
+@media (prefers-color-scheme: dark) {
+  .bottom-nav {
+    background: rgba(28, 28, 30, 0.75); /* Темный полупрозрачный фон */
+    border-top: 1px solid rgba(142, 142, 147, 0.5);
+    border-left: 1px solid rgba(142, 142, 147, 0.5);
+    border-right: 1px solid rgba(142, 142, 147, 0.5);
+    border-bottom: none;
+  }
+  .bottom-nav a img {
+    filter: brightness(0) invert(0.6);
+  }
+  .bottom-nav a.active img {
+    filter: brightness(0) invert(1) !important;
+  }
 }

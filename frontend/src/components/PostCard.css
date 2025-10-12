@@ -5,13 +5,14 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  border: 1px solid var(--border-color);
 }
 
 .author-card-new-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 15px;
+  padding: 16px;
 }
 .author-info { display: flex; align-items: center; }
 .author-avatar { width: 48px; height: 48px; border-radius: 50%; background-image: var(--accent-gradient); color: white; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 500; margin-right: 12px; flex-shrink: 0; }
@@ -22,7 +23,7 @@
   font-size: 15px;
   line-height: 1.4;
   margin: 0;
-  padding: 0 15px 15px 15px;
+  padding: 0 16px 16px 16px;
 }
 .expand-caption-btn { color: var(--accent-primary); font-weight: 500; cursor: pointer; }
 
@@ -30,8 +31,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
-  padding: 15px 0;
-  border-top: 1px solid var(--border-color);
+  padding: 24px 0; /* Увеличенный отступ вместо линии */
 }
 .metric-item-new {
   display: flex;
@@ -58,9 +58,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 10px;
-  gap: 10px;
-  border-top: 1px solid var(--border-color);
+  padding: 10px; /* Оставляем отступы для кнопок */
+  margin-top: 24px; /* Увеличенный отступ вместо линии */
 }
 
 /* --- СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА --- */
@@ -71,8 +70,8 @@
   z-index: 1000;
 }
 .modal-content {
-  background: var(--bg-secondary); /* ИСПРАВЛЕНО */
-  color: var(--text-primary); /* ИСПРАВЛЕНО */
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   padding: 25px; border-radius: 15px;
   width: 90%; max-width: 500px; position: relative;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -81,17 +80,17 @@
 .modal-close-btn {
   position: absolute; top: 10px; right: 15px;
   background: none; border: none; font-size: 24px;
-  color: var(--text-secondary); /* ИСПРАВЛЕНО */
+  color: var(--text-secondary);
   cursor: pointer; width: auto; line-height: 1;
 }
-.modal-content h2 { margin-top: 0; margin-bottom: 20px; }
+.modal-content h2 { margin-top: 0; margin-bottom: 20px; font-weight: 600; font-size: 17px;}
 .loader { padding: 40px 0; text-align: center; font-size: 16px; font-weight: 500; }
-.modal-error { color: var(--danger-color); margin-top: 10px; padding: 10px; background-color: #ffe6e6; border-radius: 8px; }
+.modal-error { color: var(--danger-color); margin-top: 10px; padding: 10px; background-color: rgba(255, 59, 48, 0.1); border-radius: 8px; }
 .script-result {
-  white-space: pre-wrap; background-color: var(--bg-primary); /* ИСПРАВЛЕНО */
+  white-space: pre-wrap; background-color: var(--bg-primary);
   padding: 15px; border-radius: 8px; flex-grow: 1;
   overflow-y: auto; margin-bottom: 20px; font-family: monospace; line-height: 1.5;
-  color: var(--text-primary); /* ИСПРАВЛЕНО */
+  color: var(--text-primary);
   border: 1px solid var(--border-color);
 }
 
@@ -117,7 +116,7 @@
 }
 
 .modal-icon-btn:hover {
-  background-color: #e5e5e5;
+  background-color: #4f4f52;
 }
 
 .modal-icon-btn img {
@@ -136,4 +135,39 @@
 
 .modal-icon-btn.save img {
   filter: brightness(0) invert(1);
+}
+.author-card-new-stats > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.author-card-new-stats > div > span {
+    font-weight: 600;
+}
+
+.author-card-new-stats label {
+    font-size: 12px;
+    color: var(--text-secondary);
+}.author-avatar { 
+    width: 48px; 
+    height: 48px; 
+    border-radius: 50%; 
+    background-color: #e5e5e5; /* Серый фон */
+    color: #3c3c43; /* Темно-серый цвет для буквы */
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 22px; 
+    font-weight: 500; 
+    margin-right: 12px; 
+    flex-shrink: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .author-avatar {
+    background-color: #3d3d40; /* Темно-серый фон для темной темы */
+    color: var(--text-primary); /* Белый цвет буквы */
+  }
 }

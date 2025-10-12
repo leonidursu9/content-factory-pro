@@ -20,14 +20,14 @@
 
 .scripts-list {
     display: grid;
-    gap: 15px;
+    gap: 16px;
 }
 
 .script-card-wrapper {
     background: var(--bg-secondary);
     border-radius: 18px;
     box-shadow: 0 4px 15px var(--shadow-color);
-    border: 1px solid var(--border-color); /* ИСПРАВЛЕНО */
+    border: 1px solid var(--border-color);
     overflow: hidden;
 }
 
@@ -35,9 +35,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 15px;
-    background-color: var(--bg-primary); /* ИСПРАВЛЕНО */
-    border-bottom: 1px solid var(--border-color); /* ИСПРАВЛЕНО */
+    padding: 16px;
+    background-color: var(--bg-primary);
 }
 
 .script-card-meta {
@@ -63,7 +62,8 @@
 }
 
 .script-card-content {
-    padding: 20px;
+    padding: 16px;
+    margin-top: 24px; /* Заменяем линию на отступ */
 }
 
 .script-text {
@@ -119,8 +119,7 @@
 
 .script-card-footer {
     padding: 10px;
-    background-color: var(--bg-primary); /* ИСПРАВЛЕНО */
-    border-top: 1px solid var(--border-color); /* ИСПРАВЛЕНО */
+    background-color: var(--bg-primary);
     display: flex;
     justify-content: center;
     gap: 10px;
