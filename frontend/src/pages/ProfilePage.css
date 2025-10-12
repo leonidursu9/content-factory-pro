@@ -90,26 +90,20 @@ input:checked + .slider:before { transform: translateX(22px); }
 .slider.round { border-radius: 34px; }
 .slider.round:before { border-radius: 50%; }
 
-/* --- ФИНАЛЬНОЕ ИСПРАВЛЕНИЕ ШКАЛЫ --- */
 .progress-bar-container {
     width: 100%;
-    background-color: #e9e9ed; /* Светло-серый фон для светлой темы */
+    background-color: var(--bg-primary); 
     border-radius: 10px;
     height: 10px;
     margin-top: 5px;
-    overflow: hidden;
+    overflow: hidden; 
+    border: 1px solid var(--border-color);
 }
 
 .progress-bar {
     height: 100%;
-    background-color: var(--success-color); /* Зеленый цвет для самой полоски */
+    /* ИСПРАВЛЕНИЕ: Задаем цвет напрямую */
+    background-color: #34c759; 
     border-radius: 10px;
     transition: width 0.5s ease-in-out;
-}
-
-/* Правило для темной темы */
-@media (prefers-color-scheme: dark) {
-  .progress-bar-container {
-    background-color: #3a3a3c; /* Контрастный серый фон для темной темы */
-  }
 }
