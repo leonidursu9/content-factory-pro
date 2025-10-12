@@ -1,8 +1,8 @@
 .profile-card {
     background-color: var(--bg-secondary);
     border-radius: 12px;
-    padding: 16px; /* Обновлено по ТЗ */
-    margin-bottom: 16px; /* Обновлено по ТЗ */
+    padding: 16px;
+    margin-bottom: 16px;
     box-shadow: 0 4px 12px var(--shadow-color);
     border: 1px solid var(--border-color);
 }
@@ -10,7 +10,7 @@
 .profile-card h2 {
     margin-top: 0;
     margin-bottom: 25px;
-    font-size: 17px; /* Semibold 17pt */
+    font-size: 17px;
     font-weight: 600;
     color: var(--text-secondary);
     border-bottom: 1px solid var(--border-color);
@@ -22,11 +22,11 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 15px;
-    font-size: 15px; /* Regular 15pt */
+    font-size: 15px;
 }
 
 .setting-description {
-    font-size: 13px; /* Regular 13pt */
+    font-size: 13px;
     color: var(--text-secondary);
     margin-top: -10px;
     padding-bottom: 10px;
@@ -90,17 +90,26 @@ input:checked + .slider:before { transform: translateX(22px); }
 .slider.round { border-radius: 34px; }
 .slider.round:before { border-radius: 50%; }
 
+/* --- ФИНАЛЬНОЕ ИСПРАВЛЕНИЕ ШКАЛЫ --- */
 .progress-bar-container {
     width: 100%;
-    background-color: var(--bg-primary);
+    background-color: #e9e9ed; /* Светло-серый фон для светлой темы */
     border-radius: 10px;
     height: 10px;
     margin-top: 5px;
+    overflow: hidden;
 }
 
 .progress-bar {
     height: 100%;
-    background-color: var(--success-color);
+    background-color: var(--success-color); /* Зеленый цвет для самой полоски */
     border-radius: 10px;
     transition: width 0.5s ease-in-out;
+}
+
+/* Правило для темной темы */
+@media (prefers-color-scheme: dark) {
+  .progress-bar-container {
+    background-color: #3a3a3c; /* Контрастный серый фон для темной темы */
+  }
 }
