@@ -134,7 +134,7 @@ function IdeaCard({ idea, onDelete }) {
                 <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                   <button onClick={handleCloseModal} className="modal-close-btn">×</button>
                   <h2>Студия Сценариев</h2>
-                  {isLoadingAI && <div className="loader">🤖 Искусственный интеллект пишет...</div>}
+                  {isLoadingAI && <div className="loader">Искусственный интеллект пишет...</div>}
                   {error && <div className="modal-error">{error}</div>}
                   {rewrittenScript && (
                     <>
