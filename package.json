@@ -21,7 +21,6 @@
     "mongoose": "^8.18.2",
     "node-cron": "^4.2.1",
     "node-fetch": "^2.7.0",
-    "node-telegram-bot-api": "^0.66.0",
-    "react-router-dom": "^7.9.3"
+    "node-telegram-bot-api": "^0.66.0"
   }
 }
